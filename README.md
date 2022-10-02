@@ -1,11 +1,12 @@
-# Opinioned Quarto letter template for the ASU BiG research group
+# Opinioned Quarto letter template 
 
 This is a Quarto template that assists you in writing a letter.
 
 The template is based on the LaTex `letter` class, with a customized layout including a logo at the upper left, a name block on the upper right, and an address block at the bottom left of the first page.
 
-This template is the quarto version of the [original `rmd` letter template](https://github.com/juliantao/bigrmd/tree/master/inst/rmarkdown/templates/Letter) for the same research group. Original inspirations were drawn from [Rob Hyndman's MonashEBSTemplates](https://github.com/robjhyndman/MonashEBSTemplates/tree/master/inst/rmarkdown/templates/Letter). I also burrowed some ideas from the [quarto-letter extension](https://github.com/mcanouil/quarto-letter).
-
+This template is the generic, quarto version of the [original `rmd` letter template](https://github.com/juliantao/bigrmd/tree/master/inst/rmarkdown/templates/Letter) for the ASU BiG research group.
+Original inspirations were drawn from [Rob Hyndman's MonashEBSTemplates](https://github.com/robjhyndman/MonashEBSTemplates/tree/master/inst/rmarkdown/templates/Letter). 
+I also burrowed some ideas from the [quarto-letter extension](https://github.com/mcanouil/quarto-letter).
 
 ## Creating a New Letter
 
@@ -17,9 +18,14 @@ quarto use template juliantao/qletter
 
 This will install the extension and create an example qmd file. You'll need to modify the various fields in the YAML header and replace the placeholder logo with your own logo. 
 
-After rendering, the pdf file will be saved to the `_output` folder.
+## Installation For Existing Document
 
-An
+You may also use this format with an existing Quarto project or document. 
+From the quarto project or document directory, run the following command to install this format:
+
+```bash
+quarto install extension juliantao/qletter
+```
 
 ## Usage
 
@@ -35,7 +41,11 @@ or in your document yaml
 format: qletter-pdf
 ```
 
-You can view a preview of the rendered template at <https://github.com/juliantao/quarto-asce/blob/main/style-guide/asce-template.pdf>.
+After rendering, the pdf file will be saved to the `_output` folder.
+
+A rendered file can be found [here](https://github.com/juliantao/qletter/blob/main/_output/qletter.pdf).
+
+![Screenshot](./screenshot.png)
 
 ## YAML header and logo file 
 
