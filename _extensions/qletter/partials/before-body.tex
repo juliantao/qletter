@@ -1,0 +1,59 @@
+%% Define boxes for letter heads
+
+\newsavebox{\lethdone} %logo
+\newsavebox{\lethdtwo} %address
+\newsavebox{\headname} %name
+
+% define new page style, including the locations of the letter head boxes
+\makeatletter
+\def\ps@quartoletter{\begin{textblock}{8}(2,1.5)
+		\usebox{\lethdone}
+	\end{textblock}
+	\begin{textblock}{6}(15,1.5)
+		\usebox{\headname}
+	\end{textblock}
+	\begin{textblock}{10}(2,25.5)\usebox{\lethdtwo}\end{textblock}\def\thepage{}}
+
+\@ifundefined{opening}{}{%
+	\renewcommand*{\opening}[1]{\thispagestyle{quartoletter}%
+		{\@date\par}%
+		\vspace{2\parskip}%
+		{\raggedright \toname \\ \toaddress \par}%
+		\vspace{2\parskip}%
+		#1\par\nobreak}}
+\makeatother
+
+% define letterhead logo
+\sbox{\lethdone}{\hbox{
+		\includegraphics[height=1in]{$if(fromlogo)$$fromlogo$$endif$}
+	}
+}
+
+% define letterhead name
+\sbox{\headname}{\parbox{4in}{\fontsize{10}{12}\sffamily\color[gray]{0.4}
+		{\large\textbf{$fromname$}}, $fromqualifications$\\
+		$fromtitle$\\[1ex]
+		\begin{tabular}{@{}ll@{}}
+			\faicon{home}     & \href{https://$fromWWW$}{$fromWWW$}    \\
+			\faicon{envelope} & \href{mailto:$fromemail$}{$fromemail$} \\
+			\faicon{phone}    & $fromphone$
+		\end{tabular}}}
+
+% define letterhead address
+\sbox{\lethdtwo}{\hbox{\fontsize{9}{11}\sffamily\color[gray]{0.4}\begin{tabular}{@{}ll@{}}
+			\multicolumn{2}{@{}l}{$if(fromdepartment)$$fromdepartment$$endif$} \\
+			\multicolumn{2}{@{}l}{$if(frominstitute)$$frominstitute$$endif$}   \\
+			\multicolumn{2}{@{}l}{$if(fromaddress)$$fromaddress$$endif$}       \\[0.2cm]
+		\end{tabular}}}
+
+$if(date)$
+\date{$date$}
+$else$
+\date{\today}
+$endif$
+
+\begin{letter}{$toname$\\$toaddress$$if(subject)$\\ ~ \\Subject: $subject$$endif$}
+\setstretch{1}
+\vspace*{2ex}
+\opening{$opening$}
+\setstretch{$spacing$}

@@ -1,0 +1,12 @@
+\vspace{4\parskip}%
+\closing{$closing$\\[1em]\includegraphics[height=3ex]{$fromsignature$}}
+$if(encl)$
+\encl{$for(encl)$$encl$$sep$\\$endfor$}
+$endif$
+$if(cc)$
+\cc{$for(cc)$$cc$$sep$\\$endfor$}
+$endif$
+$if(ps)$
+\ps{$ps$}
+$endif$
+\end{letter}

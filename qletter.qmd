@@ -1,0 +1,32 @@
+---
+fromname: Sender name
+fromqualifications: PhD
+fromtitle: Professor
+fromWWW: sender.com
+fromemail: sender@sender.com
+fromphone: (000) 000 000
+fromdepartment: Sender Department 
+frominstitute: Sender Institution 
+fromaddress: Sender Address in one line 
+fromsignature: signature
+fromlogo: logo
+toname: Recipient
+toaddress: |
+  | Recipient address line 1 
+  | Recipient address line 2
+subject: Subject Line
+opening: Dear Recipient, 
+closing: Best regards,
+cc:
+  - CC 1 
+  - CC 2
+encl:
+  - Enclosure 1
+  - Enclosure 2
+ps: |
+  p.s.: something else 
+spacing: 1.2
+format: qletter-pdf
+---
+
+Enjoy!
