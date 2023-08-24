@@ -52,7 +52,7 @@ $else$
 \date{\today}
 $endif$
 
-\begin{letter}{$toname$\\$toaddress$$if(subject)$\\ ~ \\Subject: $subject$$endif$}
+\begin{letter}{$if(toname)$$toname$\\$endif$$if(toaddress)$$toaddress$$endif$$if(subject)$\\ ~ \\\textbf{Subject: $subject$}$endif$}
 \setstretch{1}
 \vspace*{2ex}
 \opening{$opening$}
